@@ -1,7 +1,4 @@
-﻿using MPGC_APP.ViewModels;
-using MPGC_APP.Views;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using Xamarin.Forms;
 
 namespace MPGC_APP
