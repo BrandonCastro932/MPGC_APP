@@ -4,16 +4,61 @@
              x:Class="MPGC_APP.Views.MainPage"
              BackgroundImageSource="MPGCBackground">
     <ContentPage.Content>
-        <CollectionView x:Name="MyCollection">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="{Binding Name}" TextColor="White"/>
-                       
+        <StackLayout>
+            <FlexLayout Wrap="Wrap" Direction="Row">
 
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                <CollectionView x:Name="MyCollection">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            
+                        
+                <StackLayout>
+
+                    <Frame HeightRequest="250"
+                            WidthRequest="130" BackgroundColor="Wheat" Margin="20" Padding="0" HorizontalOptions="Center" CornerRadius="10">
+                                
+                                <Grid>
+                                    <StackLayout BackgroundColor="black">
+                                            <!--IMAGEN DEL JUEGO -->
+                                            <Image x:Name="TxtGameImg" Source="https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg" Aspect="AspectFill" HeightRequest="250" Opacity="0.9">
+                                        </Image>
+
+                                    </StackLayout>
+
+                                    <StackLayout HeightRequest="70" BackgroundColor="Black" VerticalOptions="End" Opacity="0.7">
+
+                                
+
+                                    </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HeightRequest="40">
+                                <Frame Padding="0" BackgroundColor="MediumPurple" HorizontalOptions="End" Margin="10" CornerRadius="10"
+                                       WidthRequest="60">
+                                    <!-- GENERO DEL JUEGO -->
+                                    <Label x:Name="GameGenre" Text="Action" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                                </Frame>
+                            </StackLayout>
+
+                            <StackLayout  VerticalOptions="End">
+                                <!-- NOMBRE DEL JUEGO -->
+                                <Label x:Name="TxtGameName" Text="NieR Automata" TextColor="White" FontSize="18" FontAttributes="Bold" Margin="15" FontFamily="Roboto" VerticalOptions="EndAndExpand"></Label>
+
+                            </StackLayout>
+
+                        </Grid>
+
+                            </Frame>
+                </StackLayout>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+
+
+
+            </FlexLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
