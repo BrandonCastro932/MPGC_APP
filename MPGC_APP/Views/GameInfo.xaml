@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MPGC_APP.Views.GameInfo"
-            BackgroundImageSource="ConsolesWallpaper"
+            BackgroundImageSource="MPGCBackground"
              xmlns:o="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
              
              >

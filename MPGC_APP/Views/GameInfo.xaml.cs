@@ -16,14 +16,14 @@ namespace MPGC_APP.Views
             InitializeComponent();
             mediaPlayer.HeightRequest = 1;
             GetYTGameMusicAsync("QzMFg3SfXZA");
-           
+
             /*Esto pone un titulo en el shell bar
             Label r = new Label();
             r.Text = "Nier";
             Shell.SetTitleView(this, (View)r);
             */
         }
-        
+
 
 
 
@@ -33,7 +33,7 @@ namespace MPGC_APP.Views
             if (!PkPicker.IsFocused)
             {
                 PkPicker.IsVisible = true;
-                
+
                 PkPicker.Focus();
             }
         }
@@ -41,7 +41,7 @@ namespace MPGC_APP.Views
         private void CmdHidePicker(object sender, FocusEventArgs e)
         {
             PkPicker.IsVisible = false;
-            
+
         }
 
         public async void GetYTGameMusicAsync(string videoId)
@@ -78,15 +78,15 @@ namespace MPGC_APP.Views
             Loading.IsVisible = false;
             Content.IsVisible = true;
             Content.Opacity = 0;
-            
+
             await Content.FadeTo(1, 3000);
-            
+
         }
 
         private void PkPicker_Focused(object sender, FocusEventArgs e)
         {
             PkPicker.IsVisible = false;
         }
-        
+
     }
 }

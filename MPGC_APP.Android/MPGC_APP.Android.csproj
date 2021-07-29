@@ -98,5 +98,11 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\NierBackground.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\MPGCLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\MPGCBackground.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
