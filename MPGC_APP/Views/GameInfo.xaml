@@ -23,10 +23,11 @@
 
                 </Grid>
 
-                <Grid x:Name="Loading" IsVisible="true">
+            <Grid x:Name="Loading" IsVisible="true" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" VerticalOptions="Center" HorizontalOptions="Center">
                     <StackLayout>
-                        <Label Text="Me cago en david"></Label>
-                        <ActivityIndicator x:Name="activityIndicator" IsVisible="true" IsRunning="True" VerticalOptions="Start"></ActivityIndicator>
+                        <Label x:Name="TxtLoading" Text="Loading" TextColor="White" FontSize="Large"></Label>
+                    <ActivityIndicator x:Name="activityIndicator" IsVisible="true" IsRunning="True" Color="#1DA1F2"></ActivityIndicator>
                     </StackLayout>
                 </Grid>
 

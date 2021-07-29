@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YoutubeExplode;
@@ -49,7 +49,7 @@ namespace MPGC_APP.Views
             var youtube = new YoutubeClient();
             Loading.IsVisible = true;
             Content.IsVisible = false;
-
+            PageBackground.IsVisible = false;
             var streamManifest = await youtube.Videos.Streams.GetManifestAsync(videoId);
 
             var streamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
@@ -67,9 +67,20 @@ namespace MPGC_APP.Views
                 {
 
                 }
-                Loading.IsVisible = false;
-                Content.IsVisible = true;
+
+
             }
+            TxtLoading.Text = TxtName.Text;
+            PageBackground.IsVisible = true;
+            PageBackground.Opacity = 0;
+            await PageBackground.FadeTo(1, 500);
+            Task.Delay(3000).Wait();
+            Loading.IsVisible = false;
+            Content.IsVisible = true;
+            Content.Opacity = 0;
+            
+            await Content.FadeTo(1, 3000);
+            
         }
 
         private void PkPicker_Focused(object sender, FocusEventArgs e)
