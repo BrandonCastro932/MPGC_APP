@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Collections.ObjectModel;
+using MPGC_APP.Tools;
+using RestSharp;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace MPGC_API.Models
 {
@@ -26,5 +30,31 @@ namespace MPGC_API.Models
         public virtual ICollection<GamePlatform> GamePlatforms { get; set; }
         public virtual ICollection<GameScreenshot> GameScreenshots { get; set; }
         public virtual ICollection<UserGame> UserGames { get; set; }
+
+        public ObservableCollection<Game> GetAllGames()
+        {
+            string Consumo = ObjetosGlobales.RutaPruebas + "Games";
+
+            var client = new RestClient(Consumo);
+            var request = new RestRequest(Method.GET);
+
+            request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKey);
+
+            IRestResponse response = client.Execute(request);
+
+            HttpStatusCode statusCode = response.StatusCode;
+            Console.WriteLine(response);
+            var AllGames = JsonConvert.DeserializeObject<ObservableCollection<Game>>(response.Content);
+
+            if(statusCode == HttpStatusCode.OK)
+            {
+                return AllGames;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
     }
 }

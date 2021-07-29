@@ -68,6 +68,8 @@
                                 <Label Text="Screenshots" FontSize="27" TextColor="White"></Label>
 
                             <Image Source="https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg"></Image>
+                                
+                                
                             </StackLayout>
                         </StackLayout>
                         

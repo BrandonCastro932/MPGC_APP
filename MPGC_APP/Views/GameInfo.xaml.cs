@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MPGC_APP.ViewModels;
+using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,7 +15,9 @@ namespace MPGC_APP.Views
         public GameInfo()
         {
             InitializeComponent();
+            
             mediaPlayer.HeightRequest = 1;
+
             GetYTGameMusicAsync("QzMFg3SfXZA");
 
             /*Esto pone un titulo en el shell bar
