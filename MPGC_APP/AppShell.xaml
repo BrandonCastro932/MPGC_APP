@@ -2,8 +2,13 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:MPGC_APP.Views"
-       Title="MPGC_APP"
-       x:Class="MPGC_APP.AppShell">
+       x:Class="MPGC_APP.AppShell"
+     
+       Shell.BackgroundColor="#141d26"
+       Shell.TitleColor="Transparent"
+       FlyoutBackgroundColor="Transparent"
+       
+       >
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -14,7 +19,6 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
@@ -46,7 +50,7 @@
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="#141d26" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
