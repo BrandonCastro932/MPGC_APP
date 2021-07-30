@@ -20,7 +20,11 @@
 
 
                             <Frame BackgroundColor="Transparent">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
 
+                                    </TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
                                 <Frame  BackgroundColor="Wheat" Margin="20,20,20,-20" Padding="0" HorizontalOptions="Center" CornerRadius="10" WidthRequest="400" HeightRequest="250">
 
                                     <Grid VerticalOptions="Fill">

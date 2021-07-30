@@ -15,7 +15,6 @@ namespace MPGC_APP.Views
             InitializeComponent();
             BindingContext = vmGame = new GameViewModel();
             MyCollection.ItemsSource = vmGame.AllGames();
-            DisplayAlert("wasd", vmGame.ToString(), "Ok");
         }
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
