@@ -13,7 +13,7 @@ namespace MPGC_APP.Views
         {
             InitializeComponent();
             BindingContext = vmGame = new GameViewModel();
-            //MyCollection.ItemsSource = vmGame.AllGames();
+            MyCollection.ItemsSource = vmGame.AllGames();
 
         }
     }
