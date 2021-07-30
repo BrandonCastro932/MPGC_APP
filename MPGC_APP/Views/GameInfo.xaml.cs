@@ -1,4 +1,6 @@
-﻿using MPGC_APP.ViewModels;
+﻿using AngleSharp.Browser;
+using MPGC_API.Models;
+using MPGC_APP.ViewModels;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -17,8 +19,8 @@ namespace MPGC_APP.Views
             InitializeComponent();
             
             mediaPlayer.HeightRequest = 1;
-
-            GetYTGameMusicAsync("QzMFg3SfXZA");
+            
+            
 
             /*Esto pone un titulo en el shell bar
             Label r = new Label();
@@ -27,7 +29,21 @@ namespace MPGC_APP.Views
             */
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
 
+            GetYTGameMusicAsync(((Game)BindingContext).UrlMusicTheme);
+
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            mediaPlayer.Pause();
+            Navigation.PopAsync();
+            return true;
+        }
 
 
         private void CmdGameStateChange(object sender, EventArgs e)
@@ -90,6 +106,6 @@ namespace MPGC_APP.Views
         {
             PkPicker.IsVisible = false;
         }
-
+        
     }
 }

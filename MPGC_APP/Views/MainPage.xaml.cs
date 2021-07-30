@@ -1,4 +1,5 @@
-﻿using MPGC_APP.ViewModels;
+﻿using MPGC_API.Models;
+using MPGC_APP.ViewModels;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,7 +15,16 @@ namespace MPGC_APP.Views
             InitializeComponent();
             BindingContext = vmGame = new GameViewModel();
             MyCollection.ItemsSource = vmGame.AllGames();
+            DisplayAlert("wasd", vmGame.ToString(), "Ok");
+        }
 
+        private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
+        {
+            Frame frame = (Frame)sender;
+            Game game = (Game)frame.BindingContext;
+            GameInfo gameInfo = new GameInfo();
+            gameInfo.BindingContext = game;
+            Navigation.PushAsync(gameInfo);
         }
     }
 }
