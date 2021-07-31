@@ -2,6 +2,7 @@
 using MPGC_API.Models;
 using MPGC_APP.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,7 +15,8 @@ namespace MPGC_APP.Views
     public partial class GameInfo : ContentPage
     {
         GameViewModel vmGame;
-        Game wasd;
+        Game game;
+
         public GameInfo()
         {
             InitializeComponent();
@@ -33,9 +35,10 @@ namespace MPGC_APP.Views
         {
             base.OnAppearing();
 
-            wasd = vmGame.GetGameId(((Game)BindingContext).Idgame);
+            game = vmGame.GetGameId(((Game)BindingContext).Idgame);
 
-
+            TxtGenre.Text = game.IdgenreNavigation.NameGenre;
+            
             GetYTGameMusicAsync(((Game)BindingContext).UrlMusicTheme);
 
         }

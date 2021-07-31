@@ -28,6 +28,7 @@ namespace MPGC_API.Models
         public int Idgenre { get; set; }
 
         public virtual Genre IdgenreNavigation { get; set; }
+        public virtual ICollection<GameMovie> GameMovies { get; set; }
         public virtual ICollection<GamePlatform> GamePlatforms { get; set; }
         public virtual ICollection<GameScreenshot> GameScreenshots { get; set; }
         public virtual ICollection<UserGame> UserGames { get; set; }
@@ -70,7 +71,7 @@ namespace MPGC_API.Models
 
             HttpStatusCode statusCode = response.StatusCode;
 
-            Game game = (Game)JsonConvert.DeserializeObject(response.Content);
+            var game = JsonConvert.DeserializeObject<Game>(response.Content);
 
             if (statusCode == HttpStatusCode.OK)
             {

@@ -43,7 +43,7 @@ namespace MPGC_APP.ViewModels
 
             try
             {
-                return GetGameId(id);
+                return game.GetGameById(id);
             }
             catch
             {
