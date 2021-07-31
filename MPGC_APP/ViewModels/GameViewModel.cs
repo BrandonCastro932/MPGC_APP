@@ -36,6 +36,7 @@ namespace MPGC_APP.ViewModels
             }
         }
 
+        //wasd
         public Game GetGameId(int id)
         {
             if (IsBusy) return null;
