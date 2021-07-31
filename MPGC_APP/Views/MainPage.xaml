@@ -48,9 +48,9 @@
 
                                         <StackLayout VerticalOptions="Start" HeightRequest="40">
                                             <Frame Padding="0" BackgroundColor="MediumPurple" HorizontalOptions="End" Margin="10" CornerRadius="10"
-                                       WidthRequest="60">
+                                       WidthRequest="70">
                                                 <!-- GENERO DEL JUEGO -->
-                                                <Label x:Name="GameGenre" Text="Action" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                                                <Label x:Name="GameGenre" Text="{Binding IdgenreNavigation.NameGenre}" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                                             </Frame>
                                         </StackLayout>
 
