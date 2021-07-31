@@ -1,8 +1,6 @@
-﻿using AngleSharp.Browser;
-using MPGC_API.Models;
+﻿using MPGC_API.Models;
 using MPGC_APP.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,7 +19,7 @@ namespace MPGC_APP.Views
         {
             InitializeComponent();
             vmGame = new GameViewModel();
-            
+
             mediaPlayer.HeightRequest = 1;
 
             /*Esto pone un titulo en el shell bar
@@ -38,7 +36,14 @@ namespace MPGC_APP.Views
             game = vmGame.GetGameId(((Game)BindingContext).Idgame);
 
             TxtGenre.Text = game.IdgenreNavigation.NameGenre;
-            
+            ScreenshotView.ItemsSource = game.GameScreenshots;
+
+            string r = game.Released.ToString("MMMM dd, yyyy");
+            string fecha = DateTime.Parse(r).ToShortDateString();
+            TxtReleased.Text = "Release date: " + fecha;
+
+            VideoView.ItemsSource = game.GameMovies;
+            BindableLayout.SetItemsSource(PlatformsView, game.GamePlatforms);
             GetYTGameMusicAsync(((Game)BindingContext).UrlMusicTheme);
 
         }
@@ -112,6 +117,6 @@ namespace MPGC_APP.Views
         {
             PkPicker.IsVisible = false;
         }
-        
+
     }
 }

@@ -18,5 +18,10 @@ namespace MPGC_APP.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+
+        private void BtnLogin_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

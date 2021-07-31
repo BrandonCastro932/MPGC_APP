@@ -40,7 +40,19 @@
                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
                         <StackLayout  Margin="20,20,20,20" >
                             <Label x:Name="TxtName" Text="{Binding Name}" FontSize="27" TextColor="White"></Label>
-                    <Label x:Name="TxtReleased" Margin="0,-3,0,0" Text="{Binding Released}" TextColor="White"></Label>
+                            
+                            <FlexLayout x:Name="PlatformsView" Wrap="Wrap">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Label Margin="0,0,7,0" Text="{Binding PlatformsIdplatformNavigation.Platform1, StringFormat='{0}  -'}" TextColor="White"></Label>
+                                        
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </FlexLayout>
+
+
+
+                            <Label x:Name="TxtReleased" Margin="0,-3,0,0" Text="Release date" TextColor="White"></Label>
                     <Label x:Name="TxtGenre" Margin="0,-8,0,0" Text="Genre: Action" TextColor="White"></Label>
                     <Button Pressed="CmdGameStateChange" x:Name="TxtGameState" Text="In queue" BackgroundColor="MediumPurple" WidthRequest="100" HorizontalOptions="Start" HeightRequest="35" CornerRadius="20" Margin="0,10,0,20">
                         
@@ -61,17 +73,44 @@
                     TextColor="White"   ></Label>
                             
                         </StackLayout>
-                        <StackLayout Margin="0,30,0,30" Opacity="0.8">
+                        <StackLayout Margin="0,30,0,30" Opacity="1">
                             
                             <StackLayout Margin="20,30,20,0">
                                 <Label Text="Screenshots" FontSize="27" TextColor="White"></Label>
 
-                            <Image Source="https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg"></Image>
+                                <CarouselView x:Name="ScreenshotView" HeightRequest="200" Loop="False">
+                                    <CarouselView.ItemTemplate>
+                                        <DataTemplate>
+                                          
+                                                <Image Source="{Binding Sslink}"></Image>
+                                            
+                                        </DataTemplate>
+                                    </CarouselView.ItemTemplate>
+                                </CarouselView>
                                 
                                 
                             </StackLayout>
                         </StackLayout>
-                        
+
+                        <StackLayout Margin="0,30,0,30" Opacity="1">
+
+                            <StackLayout Margin="20,30,20,0">
+                                <Label Text="Videos" FontSize="27" TextColor="White"></Label>
+
+                                <CarouselView x:Name="VideoView" HeightRequest="200" Loop="False">
+                                    <CarouselView.ItemTemplate>
+                                        <DataTemplate>
+
+                                            <WebView Source="{Binding Urlembed, StringFormat='https://www.youtube.com/embed/{0}'}"></WebView>
+
+                                        </DataTemplate>
+                                    </CarouselView.ItemTemplate>
+                                </CarouselView>
+
+
+                            </StackLayout>
+                        </StackLayout>
+
                     </StackLayout>
                     
                 </ScrollView>
