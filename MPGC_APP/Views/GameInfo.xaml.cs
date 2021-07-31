@@ -13,14 +13,14 @@ namespace MPGC_APP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameInfo : ContentPage
     {
-
+        GameViewModel vmGame;
+        Game wasd;
         public GameInfo()
         {
             InitializeComponent();
+            vmGame = new GameViewModel();
             
             mediaPlayer.HeightRequest = 1;
-            
-            
 
             /*Esto pone un titulo en el shell bar
             Label r = new Label();
@@ -32,6 +32,9 @@ namespace MPGC_APP.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
+            wasd = vmGame.GetGameId(((Game)BindingContext).Idgame);
+
 
             GetYTGameMusicAsync(((Game)BindingContext).UrlMusicTheme);
 

@@ -57,5 +57,30 @@ namespace MPGC_API.Models
             }
 
         }
+        public Game GetGameById(int id)
+        {
+            string Consumo = string.Format(ObjetosGlobales.RutaPruebas + "Games/{0}",id);
+
+            var client = new RestClient(Consumo);
+            var request = new RestRequest(Method.GET);
+
+            request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKey);
+
+            IRestResponse response = client.Execute(request);
+
+            HttpStatusCode statusCode = response.StatusCode;
+
+            Game game = (Game)JsonConvert.DeserializeObject(response.Content);
+
+            if (statusCode == HttpStatusCode.OK)
+            {
+                return game;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
     }
 }

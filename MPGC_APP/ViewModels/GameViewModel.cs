@@ -35,5 +35,24 @@ namespace MPGC_APP.ViewModels
                 IsBusy = false;
             }
         }
+
+        public Game GetGameId(int id)
+        {
+            if (IsBusy) return null;
+            IsBusy = true;
+
+            try
+            {
+                return GetGameId(id);
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
     }
 }
