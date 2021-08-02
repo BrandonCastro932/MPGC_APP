@@ -68,10 +68,6 @@
 
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-
-                    <CollectionView.Footer>
-                        <Button x:Name="BtnNext" Text="Next Page" Clicked="BtnNext_Clicked"></Button>
-                    </CollectionView.Footer>
                 </CollectionView>
 
             </StackLayout>
