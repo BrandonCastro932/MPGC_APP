@@ -28,16 +28,7 @@ namespace MPGC_APP.Views
 
         private void BtnNext_Clicked(object sender, System.EventArgs e)
         {
-            bool isBusy = false;
 
-            if (!isBusy)
-            {
-                isBusy = true;
-
-
-
-
-            }
         }
     }
 }
