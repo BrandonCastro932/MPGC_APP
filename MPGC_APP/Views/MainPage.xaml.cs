@@ -25,5 +25,19 @@ namespace MPGC_APP.Views
             gameInfo.BindingContext = game;
             Navigation.PushAsync(gameInfo);
         }
+
+        private void BtnNext_Clicked(object sender, System.EventArgs e)
+        {
+            bool isBusy = false;
+
+            if (!isBusy)
+            {
+                isBusy = true;
+
+
+
+
+            }
+        }
     }
 }
