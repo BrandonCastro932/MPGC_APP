@@ -6,6 +6,7 @@
              Shell.NavBarIsVisible="False"
             BackgroundImageSource="MPGCBackground"
              xmlns:o="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              
              >
     
@@ -13,9 +14,9 @@
         
             <RelativeLayout>
             
-                <Image x:Name="PageBackground" Aspect="AspectFill" Source="{Binding BackgroundImage}"
+                <ffimageloading:CachedImage CacheDuration="1" DownsampleToViewSize="True" x:Name="PageBackground" Aspect="AspectFill" Source="{Binding BackgroundImage}"
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"></Image>
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"></ffimageloading:CachedImage>
 
                 <Grid BackgroundColor="#141d26" Opacity="0.7" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">

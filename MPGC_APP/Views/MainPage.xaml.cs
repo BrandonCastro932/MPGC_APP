@@ -1,5 +1,6 @@
 ﻿using MPGC_API.Models;
 using MPGC_APP.ViewModels;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -35,6 +36,7 @@ namespace MPGC_APP.Views
 
             base.OnAppearing();
 
+            
             MyCollection.ItemsSource = vmGame.AllGames();
 
         }

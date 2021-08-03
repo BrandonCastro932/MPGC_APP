@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MPGC_APP.Views.MainPage"
-             BackgroundImageSource="MPGCBackground">
+             BackgroundImageSource="MPGCBackground"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             >
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -44,8 +46,8 @@
 
                                             <StackLayout BackgroundColor="Transparent">
                                             <!--IMAGEN DEL JUEGO -->
-                                            <Image x:Name="TxtGameImg" Source="{Binding BackgroundImage}" Aspect="AspectFill" HeightRequest="250" Opacity="1">
-                                            </Image>
+                                            <ffimageloading:CachedImage DownsampleToViewSize="True" CacheDuration="1" x:Name="TxtGameImg" Source="{Binding BackgroundImage}" Aspect="AspectFill" HeightRequest="250" Opacity="1">
+                                            </ffimageloading:CachedImage>
 
                                         </StackLayout>
 
