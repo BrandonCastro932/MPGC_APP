@@ -1,6 +1,5 @@
 ﻿using MPGC_API.Models;
 using MPGC_APP.ViewModels;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +13,6 @@ namespace MPGC_APP.Views
         {
             InitializeComponent();
             BindingContext = vmGame = new GameViewModel();
-            MyCollection.ItemsSource = vmGame.AllGames();
         }
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
@@ -39,5 +37,16 @@ namespace MPGC_APP.Views
 
             }
         }
+
+        protected override async void OnAppearing()
+        {
+
+
+            base.OnAppearing();
+
+            MyCollection.ItemsSource = vmGame.AllGames();
+
+        }
+
     }
 }

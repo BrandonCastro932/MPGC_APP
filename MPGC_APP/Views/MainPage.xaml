@@ -34,8 +34,15 @@
                                             </Image>
 
                                         </StackLayout>
+                                        
+                                            <StackLayout>
+                                                <!--IMAGEN DEL JUEGO -->
 
-                                        <StackLayout BackgroundColor="Transparent">
+                                            <ActivityIndicator VerticalOptions="CenterAndExpand" IsVisible="true" IsRunning="True" Color="#1DA1F2" ></ActivityIndicator>
+
+                                            </StackLayout>
+
+                                            <StackLayout BackgroundColor="Transparent">
                                             <!--IMAGEN DEL JUEGO -->
                                             <Image x:Name="TxtGameImg" Source="{Binding BackgroundImage}" Aspect="AspectFill" HeightRequest="250" Opacity="1">
                                             </Image>

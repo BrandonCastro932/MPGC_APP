@@ -6,8 +6,8 @@
         //Ruta API Azure Brandon: https://mpgcapi20210730165803.azurewebsites.net/api/
         //Ruta Local Brandon: http://192.168.100.173:45455/api/
 
-        public static string RutaProduccion = "http://192.168.100.173:45455/api/";
-        public static string RutaPruebas = "http://192.168.100.173:45455/api/";
+        public static string RutaProduccion = "https://mpgcapi20210730165803.azurewebsites.net/api/";
+        public static string RutaPruebas = "https://mpgcapi20210730165803.azurewebsites.net/api/";
 
         //Seguridad ya sea JWT o ApiKey
         public static string ApiKeyName = "ApiKey";
