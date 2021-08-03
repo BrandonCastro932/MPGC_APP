@@ -45,7 +45,7 @@ namespace MPGC_API.Models
             IRestResponse response = client.Execute(request);
 
             HttpStatusCode statusCode = response.StatusCode;
-            Console.WriteLine(response);
+
             var AllGames = JsonConvert.DeserializeObject<ObservableCollection<Game>>(response.Content);
 
             if(statusCode == HttpStatusCode.OK)
@@ -56,8 +56,8 @@ namespace MPGC_API.Models
             {
                 return null;
             }
-
         }
+
         public Game GetGameById(int id)
         {
             string Consumo = string.Format(ObjetosGlobales.RutaPruebas + "Games/{0}",id);
