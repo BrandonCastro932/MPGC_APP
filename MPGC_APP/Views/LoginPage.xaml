@@ -16,7 +16,13 @@
                             <Label Text="Login" FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center" FontSize="30"></Label>
                             <Entry x:Name="TxtUser" FontSize="20" Placeholder="User" PlaceholderColor="DimGray" TextColor="White"></Entry>
                             <Entry x:Name="TxtPassword" FontSize="20" IsPassword="True" Placeholder="Password" PlaceholderColor="DimGray" TextColor="White"></Entry>
-                            <Label x:Name="BtnNoLogin" Text="Proceed without login in" TextDecorations="Underline" TextColor="DeepSkyBlue" HorizontalTextAlignment="End" Margin="0,0,20,0" FontSize="16" FontAttributes="Bold"></Label>
+                            <Label x:Name="BtnNoLogin" Text="Proceed without login in" TextDecorations="Underline" TextColor="DeepSkyBlue" HorizontalTextAlignment="End" Margin="0,0,20,0" FontSize="16" FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding LoginCommand}">
+                                        
+                                    </TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
                             <Label x:Name="BtnRegister" Text="Register" TextDecorations="Underline" TextColor="DeepSkyBlue" HorizontalTextAlignment="End" Margin="0,5,20,0" FontSize="16" FontAttributes="Bold"></Label>
                             <Button x:Name="BtnLogin" Text="Login" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" WidthRequest="130" CornerRadius="50" Margin="0,20,0,0" Command="{Binding LoginCommand}" ></Button>
                         </StackLayout>
