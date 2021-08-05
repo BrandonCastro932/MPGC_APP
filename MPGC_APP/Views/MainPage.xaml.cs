@@ -33,18 +33,12 @@ namespace MPGC_APP.Views
 
         protected override async void OnAppearing()
         {
-
-
-            
-
             ObservableCollection<Game> _Games = new ObservableCollection<Game>(await vmGame.AllGames());
-
 
             MyCollection.ItemsSource = _Games;
 
             base.OnAppearing();
 
         }
-
     }
 }
