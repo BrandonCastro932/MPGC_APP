@@ -1,8 +1,7 @@
 ﻿using MPGC_API.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace MPGC_APP.ViewModels
 {
@@ -16,7 +15,7 @@ namespace MPGC_APP.ViewModels
 
         //Se implementan todos los metodos async
 
-        public ObservableCollection<Game> AllGames()
+        public async Task<ObservableCollection<Game>> AllGames()
         {
             if (IsBusy) return null;
             IsBusy = true;

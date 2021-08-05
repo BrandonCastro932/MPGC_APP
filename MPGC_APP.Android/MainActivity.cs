@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using System.Net;
 
 
 namespace MPGC_APP.Droid

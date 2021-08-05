@@ -1,5 +1,6 @@
 ﻿using MPGC_API.Models;
 using MPGC_APP.ViewModels;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -34,10 +35,14 @@ namespace MPGC_APP.Views
         {
 
 
-            base.OnAppearing();
-
             
-            MyCollection.ItemsSource = vmGame.AllGames();
+
+            ObservableCollection<Game> _Games = new ObservableCollection<Game>(await vmGame.AllGames());
+
+
+            MyCollection.ItemsSource = _Games;
+
+            base.OnAppearing();
 
         }
 
