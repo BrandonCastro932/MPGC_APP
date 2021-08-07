@@ -1,4 +1,7 @@
-﻿namespace MPGC_APP.Tools
+﻿using MPGC_API.Models;
+using System.Collections.ObjectModel;
+
+namespace MPGC_APP.Tools
 {
     public static class ObjetosGlobales
     {
@@ -12,5 +15,14 @@
         //Seguridad ya sea JWT o ApiKey
         public static string ApiKeyName = "ApiKey";
         public static string ApiKey = "MPGC_ApiKey";
+
+        public static User userLog = new User();
+
+        public static ObservableCollection<UserGame> Completed = new ObservableCollection<UserGame>();
+        public static ObservableCollection<UserGame> Playing = new ObservableCollection<UserGame>();
+        public static ObservableCollection<UserGame> Queue = new ObservableCollection<UserGame>();
+        public static ObservableCollection<UserGame> Wishlist = new ObservableCollection<UserGame>();
+
+        public static bool isUserLogged = false;
     }
 }

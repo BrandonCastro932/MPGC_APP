@@ -15,7 +15,7 @@ namespace MPGC_APP.ViewModels
 
         //Se implementan todos los metodos async
 
-        public async Task<ObservableCollection<Game>> AllGames()
+        public  ObservableCollection<Game> AllGames()
         {
             if (IsBusy) return null;
             IsBusy = true;

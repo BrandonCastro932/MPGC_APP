@@ -15,6 +15,9 @@ namespace MPGC_APP.Views
         {
             InitializeComponent();
             BindingContext = vmGame = new GameViewModel();
+            ObservableCollection<Game> _Games = new ObservableCollection<Game>(vmGame.AllGames());
+
+            MyCollection.ItemsSource = _Games;
         }
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
@@ -31,14 +34,5 @@ namespace MPGC_APP.Views
 
         }
 
-        protected override async void OnAppearing()
-        {
-            ObservableCollection<Game> _Games = new ObservableCollection<Game>(await vmGame.AllGames());
-
-            MyCollection.ItemsSource = _Games;
-
-            base.OnAppearing();
-
-        }
     }
 }

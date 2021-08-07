@@ -50,9 +50,13 @@ namespace MPGC_APP.Views
 
         protected override bool OnBackButtonPressed()
         {
-            base.OnBackButtonPressed();
-            mediaPlayer.Pause();
-            Navigation.PopAsync();
+            if (Content.IsVisible)
+            {
+                mediaPlayer.Pause();
+                Navigation.PopAsync();
+                base.OnBackButtonPressed();
+            }
+
             return true;
         }
 

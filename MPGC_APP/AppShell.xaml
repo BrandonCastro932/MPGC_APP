@@ -5,8 +5,8 @@
        x:Class="MPGC_APP.AppShell"
      
        Shell.BackgroundColor="#141d26"
-       Shell.TitleColor="Transparent"
-       FlyoutBackgroundColor="Transparent"
+       Shell.TitleColor="#0a0f14"
+       FlyoutBackgroundColor="#0a0f14"
        
        >
 

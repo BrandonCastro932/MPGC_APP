@@ -102,7 +102,9 @@
                                     <CarouselView.ItemTemplate>
                                         <DataTemplate>
 
-                                            <WebView Source="{Binding Urlembed, StringFormat='https://www.youtube.com/embed/{0}'}"></WebView>
+                                            <WebView Source="{Binding Urlembed, StringFormat='https://www.youtube.com/embed/{0}'}">
+                                                
+                                            </WebView>
 
                                         </DataTemplate>
                                     </CarouselView.ItemTemplate>
