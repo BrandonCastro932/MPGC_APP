@@ -32,7 +32,6 @@ namespace MPGC_APP.Views
             if (ObjetosGlobales.userLog != null)
             {
                 ObjetosGlobales.isUserLogged = true;
-                games = loginVM.GetUserGames(ObjetosGlobales.userLog.Iduser);
                 SortGames();
                 ObjetosGlobales.shell.UserLogged();
                 Shell.Current.GoToAsync($"//{nameof(MainPage)}");
@@ -45,7 +44,8 @@ namespace MPGC_APP.Views
 
         private void SortGames()
         {
-            if(games != null)
+            games = loginVM.GetUserGames(ObjetosGlobales.userLog.Iduser);
+            if (games != null)
             {
                 foreach (UserGame game in games)
                 {

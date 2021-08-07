@@ -2,6 +2,8 @@
 using MPGC_APP.Tools;
 using MPGC_APP.ViewModels;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,12 +16,18 @@ namespace MPGC_APP.Views
     public partial class GameInfo : ContentPage
     {
         GameViewModel vmGame;
+        GameInfoViewModel gameInfo;
         Game game;
+        LoginViewModel loginVM;
+        List<UserGame> games;
 
         public GameInfo()
         {
             InitializeComponent();
             vmGame = new GameViewModel();
+            gameInfo = new GameInfoViewModel();
+            loginVM = new LoginViewModel();
+            games = new List<UserGame>();
 
             mediaPlayer.HeightRequest = 1;
 
@@ -131,9 +139,36 @@ namespace MPGC_APP.Views
             PkPicker.IsVisible = false;
         }
 
-        private void PkPicker_SelectedIndexChanged(object sender, EventArgs e)
+        private async void PkPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DisplayAlert("Ok", Convert.ToString(PkPicker.SelectedIndex), "OK");
+            GameState.IsEnabled = false;
+            if(PkPicker.SelectedIndex >= 0 && PkPicker.SelectedIndex <= 3)
+            {
+                if(await gameInfo.RegisterGame(((Game)BindingContext).Idgame, ObjetosGlobales.userLog.Iduser, PkPicker.SelectedIndex))
+                {
+                    SortGames();
+                    GameState.Text = PkPicker.SelectedItem.ToString();
+                    GameState.IsEnabled = true;
+
+                }
+                else
+                {
+                    await DisplayAlert("Borrar", "Cannot add xd", "Borrar");
+
+                }
+            }
+            else
+            {
+                if(PkPicker.SelectedIndex == 4)
+                {
+                    if(await gameInfo.DeleteGame(((Game)BindingContext).Idgame, ObjetosGlobales.userLog.Iduser, PkPicker.SelectedIndex))
+                    {
+                        GameState.Text = "Add to collection";
+                        GameState.IsEnabled = true;
+                    }
+                    
+                }
+            }
 
         }
         private void SetButtonText()
@@ -173,6 +208,35 @@ namespace MPGC_APP.Views
                     {
                         GameState.Text = "Wishlist";
                         GameState.BackgroundColor = Color.FromHex("#9250AA");
+                    }
+                }
+            }
+        }
+        private void SortGames()
+        {
+            ObjetosGlobales.Completed.Clear();
+            ObjetosGlobales.Playing.Clear();
+            ObjetosGlobales.Queue.Clear();
+            ObjetosGlobales.Wishlist.Clear();
+            games = loginVM.GetUserGames(ObjetosGlobales.userLog.Iduser);
+            if (games != null)
+            {
+                foreach (UserGame game in games)
+                {
+                    switch (game.IdgameState)
+                    {
+                        case 1:
+                            ObjetosGlobales.Completed.Add(game);
+                            break;
+                        case 2:
+                            ObjetosGlobales.Playing.Add(game);
+                            break;
+                        case 3:
+                            ObjetosGlobales.Queue.Add(game);
+                            break;
+                        case 4:
+                            ObjetosGlobales.Wishlist.Add(game);
+                            break;
                     }
                 }
             }
