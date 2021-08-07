@@ -21,7 +21,7 @@ namespace MPGC_APP.Views
             Navigation.PopAsync();
         }
 
-        private async Task BtnRegister_ClickedAsync(object sender, EventArgs e)
+        private void BtnRegister_ClickedAsync(object sender, EventArgs e)
         {
             
         }

@@ -1,4 +1,5 @@
 ﻿using MPGC_API.Models;
+using MPGC_APP.Tools;
 using MPGC_APP.ViewModels;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -19,6 +20,27 @@ namespace MPGC_APP.Views
 
             MyCollection.ItemsSource = _Games;
          
+        }
+
+        protected override void OnAppearing()
+        {
+            Label r = new Label();
+            r.TextColor = Color.White;
+            r.FontSize = 20;
+            r.Margin = 14;
+            
+            if (ObjetosGlobales.isUserLogged)
+            {
+               
+                r.Text = "Welcome " + ObjetosGlobales.userLog.Username + "!!";
+                Shell.SetTitleView(this, (View)r);
+            }
+            else 
+            {
+                r.Text = "";
+                Shell.SetTitleView(this, (View)r);
+            }
+            base.OnAppearing();
         }
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
