@@ -169,7 +169,7 @@ namespace MPGC_APP.Views
                     
                 }
             }
-
+            GameState.IsEnabled = true;
         }
         private void SetButtonText()
         {

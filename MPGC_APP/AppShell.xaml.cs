@@ -19,10 +19,10 @@ namespace MPGC_APP
             {
                 ObjetosGlobales.userLog = null;
                 ObjetosGlobales.isUserLogged = false;
-                ObjetosGlobales.Completed = null;
-                ObjetosGlobales.Playing = null;
-                ObjetosGlobales.Queue = null;
-                ObjetosGlobales.Wishlist = null;
+                ObjetosGlobales.Completed.Clear();
+                ObjetosGlobales.Playing.Clear();
+                ObjetosGlobales.Queue.Clear();
+                ObjetosGlobales.Wishlist.Clear();
                 LoginBtn.Text = "Login or Register";
             }
             await Shell.Current.GoToAsync("//LoginPage");

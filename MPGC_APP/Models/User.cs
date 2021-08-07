@@ -4,6 +4,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace MPGC_API.Models
 {
@@ -76,6 +77,30 @@ namespace MPGC_API.Models
             }
         }
 
+        public async Task<bool> RegisterUser()
+        {
+            string Consumo = ObjetosGlobales.RutaPruebas + "users";
 
+            var client = new RestClient(Consumo);
+            var request = new RestRequest(Method.POST);
+
+            request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKey);
+            request.AddHeader("Content-type", "application/json");
+
+            string JsonClass = JsonConvert.SerializeObject(this);
+            request.AddParameter("application/json", JsonClass, ParameterType.RequestBody);
+
+            IRestResponse response = await client.ExecuteAsync(request);
+            HttpStatusCode code = response.StatusCode;
+
+            if (code == HttpStatusCode.Created)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
