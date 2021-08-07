@@ -149,11 +149,11 @@ namespace MPGC_APP.Views
                     SortGames();
                     GameState.Text = PkPicker.SelectedItem.ToString();
                     GameState.IsEnabled = true;
-
+                    SetButtonText();
                 }
                 else
                 {
-                    await DisplayAlert("Borrar", "Cannot add xd", "Borrar");
+                    await DisplayAlert("Error", "There was a problem trying to add the game", "Borrar");
 
                 }
             }
@@ -163,8 +163,11 @@ namespace MPGC_APP.Views
                 {
                     if(await gameInfo.DeleteGame(((Game)BindingContext).Idgame, ObjetosGlobales.userLog.Iduser, PkPicker.SelectedIndex))
                     {
-                        GameState.Text = "Add to collection";
+                        GameState.BackgroundColor = Color.FromHex("#B51919");
+                        GameState.Text = "Add to";
                         GameState.IsEnabled = true;
+                        SortGames();
+                        
                     }
                     
                 }

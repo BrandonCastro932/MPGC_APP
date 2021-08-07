@@ -85,7 +85,7 @@
     <FlyoutItem Title="All Games" Icon="icon_all.png">
         <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="My Games" Icon="icon_all.png">
+    <FlyoutItem Title="My Games" Icon="UserIcon.png">
         <ShellContent Route="GameCollectionPage" ContentTemplate="{DataTemplate local:GameCollectionPage}"/>
     </FlyoutItem>
     <!--<FlyoutItem Title="Browse" Icon="icon_feed.png">
@@ -93,7 +93,7 @@
     </FlyoutItem>
 -->
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="Login or Register" IconImageSource="icon_all.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked" x:Name="LoginBtn">
+    <MenuItem Text="Login or Register" IconImageSource="Login.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked" x:Name="LoginBtn">
     </MenuItem>
 
     <!--

@@ -15,10 +15,10 @@
 
                             <FlexLayout Wrap="Wrap" JustifyContent="SpaceEvenly">
 
-                                <Button  x:Name="BtnCompleted" Text="Completed" BackgroundColor="MediumPurple" WidthRequest="150" HorizontalOptions="Start" HeightRequest="40" CornerRadius="20" Margin="0,10,0,20" Clicked="BtnCompleted_Clicked"></Button>
-                                <Button  x:Name="BtnPlaying" Text="Playing" BackgroundColor="MediumPurple" WidthRequest="150" HorizontalOptions="Start" HeightRequest="40" CornerRadius="20" Margin="0,10,0,20" Clicked="BtnPlaying_Clicked"></Button>
-                                <Button  x:Name="BtnQueue" Text="In queue" BackgroundColor="MediumPurple" WidthRequest="150" HorizontalOptions="Start" HeightRequest="40" CornerRadius="20" Margin="0,10,0,20" Clicked="BtnQueue_Clicked"></Button>
-                                <Button  x:Name="BtnWishlist" Text="Wishlist" BackgroundColor="MediumPurple" WidthRequest="150" HorizontalOptions="Start" HeightRequest="40" CornerRadius="20" Margin="0,10,0,20" Clicked="BtnWishlist_Clicked"></Button>
+                                <Button  x:Name="BtnCompleted" Text="Completed" BackgroundColor="#9DC73B" WidthRequest="150" HorizontalOptions="Start" HeightRequest="40" CornerRadius="20" Margin="0,10,0,20" Clicked="BtnCompleted_Clicked"></Button>
+                                <Button  x:Name="BtnPlaying" Text="Playing" BackgroundColor="#FF0066" WidthRequest="150" HorizontalOptions="Start" HeightRequest="40" CornerRadius="20" Margin="0,10,0,20" Clicked="BtnPlaying_Clicked"></Button>
+                                <Button  x:Name="BtnQueue" Text="In queue" BackgroundColor="#3D4ED3" WidthRequest="150" HorizontalOptions="Start" HeightRequest="40" CornerRadius="20" Margin="0,10,0,20" Clicked="BtnQueue_Clicked"></Button>
+                                <Button  x:Name="BtnWishlist" Text="Wishlist" BackgroundColor="#9250AA" WidthRequest="150" HorizontalOptions="Start" HeightRequest="40" CornerRadius="20" Margin="0,10,0,20" Clicked="BtnWishlist_Clicked"></Button>
                             </FlexLayout>
                         </StackLayout>
 

@@ -20,7 +20,7 @@ namespace MPGC_APP.Views
            
             MyCollection.ItemsSource = ObjetosGlobales.Completed;
             ResetColors();
-            BtnCompleted.TextColor = Color.Red;
+            BtnCompleted.TextColor = Color.LightBlue;
         }
         protected override void OnAppearing()
         {
@@ -39,28 +39,28 @@ namespace MPGC_APP.Views
         {
             MyCollection.ItemsSource = ObjetosGlobales.Completed;
             ResetColors();
-            BtnCompleted.TextColor = Color.Red;
+            BtnCompleted.TextColor = Color.White;
         }
 
         private void BtnPlaying_Clicked(object sender, EventArgs e)
         {
             MyCollection.ItemsSource = ObjetosGlobales.Playing;
             ResetColors();
-            BtnPlaying.TextColor = Color.Red;
+            BtnPlaying.TextColor = Color.White;
         }
 
         private void BtnQueue_Clicked(object sender, EventArgs e)
         {
             MyCollection.ItemsSource = ObjetosGlobales.Queue;
             ResetColors();
-            BtnQueue.TextColor = Color.Red;
+            BtnQueue.TextColor = Color.White;
         }
 
         private void BtnWishlist_Clicked(object sender, EventArgs e)
         {
             MyCollection.ItemsSource = ObjetosGlobales.Wishlist;
             ResetColors();
-            BtnWishlist.TextColor = Color.Red;
+            BtnWishlist.TextColor = Color.White;
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -75,10 +75,10 @@ namespace MPGC_APP.Views
 
         private void ResetColors()
         {
-            BtnCompleted.TextColor = Color.White;
-            BtnPlaying.TextColor = Color.White;
-            BtnQueue.TextColor = Color.White;
-            BtnWishlist.TextColor = Color.White;
+            BtnCompleted.TextColor = Color.Gray;
+            BtnPlaying.TextColor = Color.Gray;
+            BtnQueue.TextColor = Color.Gray;
+            BtnWishlist.TextColor = Color.Gray;
         }
     }
 }

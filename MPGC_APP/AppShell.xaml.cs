@@ -24,6 +24,8 @@ namespace MPGC_APP
                 ObjetosGlobales.Queue.Clear();
                 ObjetosGlobales.Wishlist.Clear();
                 LoginBtn.Text = "Login or Register";
+                LoginBtn.IconImageSource = "Login.png";
+                
             }
             await Shell.Current.GoToAsync("//LoginPage");
         }
@@ -31,6 +33,7 @@ namespace MPGC_APP
         public void UserLogged()
         {
             LoginBtn.Text = "Logout";
+            LoginBtn.IconImageSource = "Logout.png";
         }
     }
 }
