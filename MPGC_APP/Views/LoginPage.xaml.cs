@@ -3,9 +3,6 @@ using MPGC_APP.Tools;
 using MPGC_APP.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -28,7 +25,7 @@ namespace MPGC_APP.Views
         private void BtnLogin_Clicked(object sender, EventArgs e)
         {
             ObjetosGlobales.userLog = loginVM.LoginUser(TxtUser.Text, TxtPassword.Text);
-            
+
             if (ObjetosGlobales.userLog != null)
             {
                 ObjetosGlobales.isUserLogged = true;
@@ -49,7 +46,7 @@ namespace MPGC_APP.Views
             {
                 foreach (UserGame game in games)
                 {
-                    switch(game.IdgameState)
+                    switch (game.IdgameState)
                     {
                         case 1:
                             ObjetosGlobales.Completed.Add(game);
@@ -66,6 +63,11 @@ namespace MPGC_APP.Views
                     }
                 }
             }
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new RegisterPage());
         }
     }
 }

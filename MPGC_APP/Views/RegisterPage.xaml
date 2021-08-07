@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MPGC_APP.Views.RegisterPage"
+             BackgroundImageSource="MPGCBackground">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="LogoSmall" WidthRequest="200" Margin="0,20,0,0"></Image>
+
+
+                <Frame HeightRequest="400" Padding="0" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" Margin="20,0,20,60" CornerRadius="10">
+                    <Grid>
+                        <StackLayout BackgroundColor="#243447" Opacity="0.7" ></StackLayout>
+                        <StackLayout Margin="20">
+                            <Label Text="Register" FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center" FontSize="30"></Label>
+                            <Entry x:Name="TxtEmail" FontSize="20" Placeholder="Email" PlaceholderColor="DimGray" TextColor="White"></Entry>
+                            <Entry x:Name="TxtUser" FontSize="20" Placeholder="User" PlaceholderColor="DimGray" TextColor="White"></Entry>
+                            <Entry x:Name="TxtPassword" FontSize="20" IsPassword="True" Placeholder="Password" PlaceholderColor="DimGray" TextColor="White"></Entry>
+                            <FlexLayout Wrap="Wrap" JustifyContent="SpaceBetween">
+                                <Entry x:Name="TxtName" WidthRequest="150" FontSize="20" Placeholder="Name" PlaceholderColor="DimGray" TextColor="White"></Entry>
+                                <Entry x:Name="TxtPhone" FontSize="20" WidthRequest="150" Placeholder="Phone" PlaceholderColor="DimGray" TextColor="White"></Entry>
+                            </FlexLayout>
+                            
+                            <Label x:Name="BtnBack" Text="Back to login" TextDecorations="Underline" TextColor="DeepSkyBlue" HorizontalTextAlignment="End" Margin="0,5,20,0" FontSize="16" FontAttributes="Bold">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+
+                                    </TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Button x:Name="BtnRegister" Text="Register" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" WidthRequest="130" CornerRadius="50" Margin="0,20,0,0" Clicked="BtnRegister_Clicked" ></Button>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
