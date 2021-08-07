@@ -1,4 +1,5 @@
 ﻿using MPGC_API.Models;
+using MPGC_APP.Tools;
 using MPGC_APP.ViewModels;
 using System;
 using System.Threading.Tasks;
@@ -45,6 +46,7 @@ namespace MPGC_APP.Views
             VideoView.ItemsSource = game.GameMovies;
             BindableLayout.SetItemsSource(PlatformsView, game.GamePlatforms);
             GetYTGameMusicAsync(((Game)BindingContext).UrlMusicTheme);
+            SetButtonText();
 
         }
 
@@ -64,11 +66,18 @@ namespace MPGC_APP.Views
         private void CmdGameStateChange(object sender, EventArgs e)
         {
 
-            if (!PkPicker.IsFocused)
+            if (ObjetosGlobales.isUserLogged)
             {
-                PkPicker.IsVisible = true;
+                if (!PkPicker.IsFocused)
+                {
+                    PkPicker.IsVisible = true;
 
-                PkPicker.Focus();
+                    PkPicker.Focus();
+                }
+            }
+            else
+            {
+                DisplayAlert("Login Or Register", "Login or Register to start a collection", "OK");
             }
         }
 
@@ -122,5 +131,51 @@ namespace MPGC_APP.Views
             PkPicker.IsVisible = false;
         }
 
+        private void PkPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayAlert("Ok", Convert.ToString(PkPicker.SelectedIndex), "OK");
+
+        }
+        private void SetButtonText()
+        {
+            if (ObjetosGlobales.isUserLogged)
+            {
+                foreach(UserGame game in ObjetosGlobales.Completed)
+                {
+                    if(((Game)BindingContext).Idgame == game.Idgame)
+                    {
+                        GameState.Text = "Completed";
+                        GameState.BackgroundColor = Color.FromHex("#9DC73B");
+                    }
+                }
+
+                foreach (UserGame game in ObjetosGlobales.Playing)
+                {
+                    if (((Game)BindingContext).Idgame == game.Idgame)
+                    {
+                        GameState.Text = "Playing";
+                        GameState.BackgroundColor = Color.FromHex("#FF0066");
+                    }
+                }
+
+                foreach (UserGame game in ObjetosGlobales.Queue)
+                {
+                    if (((Game)BindingContext).Idgame == game.Idgame)
+                    {
+                        GameState.Text = "In Queue";
+                        GameState.BackgroundColor = Color.FromHex("#3D4ED3");
+                    }
+                }
+
+                foreach (UserGame game in ObjetosGlobales.Wishlist)
+                {
+                    if (((Game)BindingContext).Idgame == game.Idgame)
+                    {
+                        GameState.Text = "Wishlist";
+                        GameState.BackgroundColor = Color.FromHex("#9250AA");
+                    }
+                }
+            }
+        }
     }
 }

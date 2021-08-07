@@ -1,4 +1,5 @@
 ﻿//using MPGC_APP.Services;
+using MPGC_APP.Tools;
 using MPGC_APP.Views;
 using System;
 using Xamarin.Forms;
@@ -12,7 +13,7 @@ namespace MPGC_APP
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
+            MainPage = ObjetosGlobales.shell = new AppShell();
         }
 
         protected override void OnStart()

@@ -16,6 +16,8 @@ namespace MPGC_APP.Tools
         public static string ApiKeyName = "ApiKey";
         public static string ApiKey = "MPGC_ApiKey";
 
+        public static AppShell shell;
+
         public static User userLog = new User();
 
         public static ObservableCollection<UserGame> Completed = new ObservableCollection<UserGame>();

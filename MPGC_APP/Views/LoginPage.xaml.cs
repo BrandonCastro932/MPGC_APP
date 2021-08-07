@@ -34,6 +34,7 @@ namespace MPGC_APP.Views
                 ObjetosGlobales.isUserLogged = true;
                 games = loginVM.GetUserGames(ObjetosGlobales.userLog.Iduser);
                 SortGames();
+                ObjetosGlobales.shell.UserLogged();
                 Shell.Current.GoToAsync($"//{nameof(MainPage)}");
             }
             else

@@ -18,6 +18,7 @@ namespace MPGC_APP.Views
             ObservableCollection<Game> _Games = new ObservableCollection<Game>(vmGame.AllGames());
 
             MyCollection.ItemsSource = _Games;
+         
         }
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
@@ -33,6 +34,6 @@ namespace MPGC_APP.Views
         {
 
         }
-
+       
     }
 }
