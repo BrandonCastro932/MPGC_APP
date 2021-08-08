@@ -27,11 +27,11 @@ namespace MPGC_APP.Views
         }
         private bool validateData()
         {
-            if (!string.IsNullOrEmpty(TxtEmail.Text.Trim()) &&
-                !string.IsNullOrEmpty(TxtName.Text.Trim()) && 
-                !string.IsNullOrEmpty(TxtPassword.Text.Trim()) && 
-                !string.IsNullOrEmpty(TxtPhone.Text.Trim()) && 
-                !string.IsNullOrEmpty(TxtUser.Text.Trim()))
+            if (!string.IsNullOrEmpty(TxtEmail.Text) &&
+                !string.IsNullOrEmpty(TxtName.Text) && 
+                !string.IsNullOrEmpty(TxtPassword.Text) && 
+                !string.IsNullOrEmpty(TxtPhone.Text) && 
+                !string.IsNullOrEmpty(TxtUser.Text))
             {
                 return true;
             }
