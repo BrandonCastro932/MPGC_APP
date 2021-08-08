@@ -26,5 +26,6 @@ namespace MPGC_APP.Tools
         public static ObservableCollection<UserGame> Wishlist = new ObservableCollection<UserGame>();
 
         public static bool isUserLogged = false;
+        public static bool AppBusy = false;
     }
 }
