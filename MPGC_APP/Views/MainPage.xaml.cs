@@ -24,7 +24,7 @@ namespace MPGC_APP.Views
             games = new List<UserGame>();
             loginVM = new LoginViewModel();
 
-            
+
 
 
 
@@ -32,6 +32,7 @@ namespace MPGC_APP.Views
 
         protected override void OnAppearing()
         {
+            this.IsEnabled = true;
             Label r = new Label();
             r.TextColor = Color.White;
             r.FontSize = 20;
@@ -54,15 +55,14 @@ namespace MPGC_APP.Views
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
         {
-            if (!ObjetosGlobales.AppBusy)
-            {
-                ObjetosGlobales.AppBusy = true;
-                Frame frame = (Frame)sender;
-                Game game = (Game)frame.BindingContext;
-                GameInfo gameInfo = new GameInfo();
-                gameInfo.BindingContext = game;
-                Navigation.PushAsync(gameInfo);
-            }
+
+            this.IsEnabled = false;
+            Frame frame = (Frame)sender;
+            Game game = (Game)frame.BindingContext;
+            GameInfo gameInfo = new GameInfo();
+            gameInfo.BindingContext = game;
+            Navigation.PushAsync(gameInfo);
+
 
         }
 

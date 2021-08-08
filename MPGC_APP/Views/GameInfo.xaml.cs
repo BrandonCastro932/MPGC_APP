@@ -54,7 +54,7 @@ namespace MPGC_APP.Views
             BindableLayout.SetItemsSource(PlatformsView, game.GamePlatforms);
             GetYTGameMusicAsync(((Game)BindingContext).UrlMusicTheme);
             SetButtonText();
-            ObjetosGlobales.AppBusy = false;
+
 
         }
 

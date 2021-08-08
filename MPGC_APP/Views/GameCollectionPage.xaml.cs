@@ -20,6 +20,7 @@ namespace MPGC_APP.Views
         }
         protected override void OnAppearing()
         {
+            this.IsEnabled = true;
             if (!ObjetosGlobales.isUserLogged)
             {
                 EmptyLabel.Text = "Login or Register to Start a collection";
@@ -62,16 +63,15 @@ namespace MPGC_APP.Views
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
 
-            if (!ObjetosGlobales.AppBusy)
-            {
-                ObjetosGlobales.AppBusy = true;
-                Frame frame = (Frame)sender;
-                UserGame game = (UserGame)frame.BindingContext;
-                Game wasd = game.IdgameNavigation;
-                GameInfo gameInfo = new GameInfo();
-                gameInfo.BindingContext = wasd;
-                Navigation.PushAsync(gameInfo);
-            }
+
+            this.IsEnabled = false;
+            Frame frame = (Frame)sender;
+            UserGame game = (UserGame)frame.BindingContext;
+            Game wasd = game.IdgameNavigation;
+            GameInfo gameInfo = new GameInfo();
+            gameInfo.BindingContext = wasd;
+            Navigation.PushAsync(gameInfo);
+
 
         }
 
