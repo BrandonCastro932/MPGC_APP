@@ -1,19 +1,28 @@
 ﻿//using MPGC_APP.Services;
 using MPGC_APP.Tools;
-using MPGC_APP.Views;
-using System;
+using MPGC_APP.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace MPGC_APP
 {
     public partial class App : Application
     {
+        UserViewModel uservm;
 
         public App()
         {
             InitializeComponent();
+
+            
+
+
+
+
+
+
             MainPage = ObjetosGlobales.shell = new AppShell();
+
         }
 
         protected override void OnStart()

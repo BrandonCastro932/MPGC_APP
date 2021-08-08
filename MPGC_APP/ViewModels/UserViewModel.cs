@@ -1,7 +1,4 @@
 ﻿using MPGC_API.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MPGC_APP.ViewModels
 {
@@ -10,9 +7,30 @@ namespace MPGC_APP.ViewModels
         public User user;
         public UserViewModel()
         {
-            
+            user = new User();
         }
 
-        
+
+        public User GetUserID(int id)
+        {
+            if (IsBusy) return null;
+            IsBusy = true;
+            try
+            {
+                user.Iduser = id;
+
+                return user.GetID();
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+
     }
 }
