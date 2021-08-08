@@ -1,10 +1,6 @@
 ﻿using MPGC_API.Models;
 using MPGC_APP.Tools;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,13 +13,14 @@ namespace MPGC_APP.Views
         public GameCollectionPage()
         {
             InitializeComponent();
-           
+
             MyCollection.ItemsSource = ObjetosGlobales.Completed;
             ResetColors();
             BtnCompleted.TextColor = Color.LightBlue;
         }
         protected override void OnAppearing()
         {
+            this.IsEnabled = true;
             if (!ObjetosGlobales.isUserLogged)
             {
                 EmptyLabel.Text = "Login or Register to Start a collection";
@@ -65,12 +62,17 @@ namespace MPGC_APP.Views
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
+
+
+            this.IsEnabled = false;
             Frame frame = (Frame)sender;
             UserGame game = (UserGame)frame.BindingContext;
             Game wasd = game.IdgameNavigation;
             GameInfo gameInfo = new GameInfo();
             gameInfo.BindingContext = wasd;
             Navigation.PushAsync(gameInfo);
+
+
         }
 
         private void ResetColors()

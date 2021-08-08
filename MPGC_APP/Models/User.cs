@@ -1,7 +1,6 @@
 ﻿using MPGC_APP.Tools;
 using Newtonsoft.Json;
 using RestSharp;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -26,6 +25,33 @@ namespace MPGC_API.Models
         public virtual UserStatus IduserStatusNavigation { get; set; }
         public virtual ICollection<UserGame> UserGames { get; set; }
 
+
+        public User GetID()
+        {
+            string Consumo = ObjetosGlobales.RutaPruebas + "users/"+Iduser;
+
+            var client = new RestClient(Consumo);
+            var request = new RestRequest(Method.GET);
+            //request.AddParameter("id", Iduser);
+
+
+            request.AddHeader(ObjetosGlobales.ApiKeyName, ObjetosGlobales.ApiKey);
+
+            IRestResponse response = client.Execute(request);
+
+            HttpStatusCode statusCode = response.StatusCode;
+
+            var user = JsonConvert.DeserializeObject<User>(response.Content);
+
+            if (statusCode == HttpStatusCode.OK)
+            {
+                return user;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public User LoginUser()
         {
@@ -53,6 +79,7 @@ namespace MPGC_API.Models
                 return null;
             }
         }
+
 
         public List<UserGame> GetUserGames()
         {

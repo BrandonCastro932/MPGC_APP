@@ -3,7 +3,7 @@ using MPGC_APP.Tools;
 using MPGC_APP.ViewModels;
 using System;
 using System.Collections.Generic;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -31,6 +31,13 @@ namespace MPGC_APP.Views
                 ObjetosGlobales.isUserLogged = true;
                 SortGames();
                 ObjetosGlobales.shell.UserLogged();
+
+
+
+                Preferences.Set("UserLogged", true);
+                Preferences.Set("UserId", ObjetosGlobales.userLog.Iduser);
+
+
                 Shell.Current.GoToAsync($"//{nameof(MainPage)}");
             }
             else

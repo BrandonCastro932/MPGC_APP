@@ -3,7 +3,6 @@ using MPGC_APP.Tools;
 using MPGC_APP.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -55,6 +54,7 @@ namespace MPGC_APP.Views
             BindableLayout.SetItemsSource(PlatformsView, game.GamePlatforms);
             GetYTGameMusicAsync(((Game)BindingContext).UrlMusicTheme);
             SetButtonText();
+
 
         }
 
@@ -142,9 +142,9 @@ namespace MPGC_APP.Views
         private async void PkPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             GameState.IsEnabled = false;
-            if(PkPicker.SelectedIndex >= 0 && PkPicker.SelectedIndex <= 3)
+            if (PkPicker.SelectedIndex >= 0 && PkPicker.SelectedIndex <= 3)
             {
-                if(await gameInfo.RegisterGame(((Game)BindingContext).Idgame, ObjetosGlobales.userLog.Iduser, PkPicker.SelectedIndex))
+                if (await gameInfo.RegisterGame(((Game)BindingContext).Idgame, ObjetosGlobales.userLog.Iduser, PkPicker.SelectedIndex))
                 {
                     SortGames();
                     GameState.Text = PkPicker.SelectedItem.ToString();
@@ -159,17 +159,17 @@ namespace MPGC_APP.Views
             }
             else
             {
-                if(PkPicker.SelectedIndex == 4)
+                if (PkPicker.SelectedIndex == 4)
                 {
-                    if(await gameInfo.DeleteGame(((Game)BindingContext).Idgame, ObjetosGlobales.userLog.Iduser, PkPicker.SelectedIndex))
+                    if (await gameInfo.DeleteGame(((Game)BindingContext).Idgame, ObjetosGlobales.userLog.Iduser, PkPicker.SelectedIndex))
                     {
                         GameState.BackgroundColor = Color.FromHex("#B51919");
                         GameState.Text = "Add to";
                         GameState.IsEnabled = true;
                         SortGames();
-                        
+
                     }
-                    
+
                 }
             }
             GameState.IsEnabled = true;
@@ -178,9 +178,9 @@ namespace MPGC_APP.Views
         {
             if (ObjetosGlobales.isUserLogged)
             {
-                foreach(UserGame game in ObjetosGlobales.Completed)
+                foreach (UserGame game in ObjetosGlobales.Completed)
                 {
-                    if(((Game)BindingContext).Idgame == game.Idgame)
+                    if (((Game)BindingContext).Idgame == game.Idgame)
                     {
                         GameState.Text = "Completed";
                         GameState.BackgroundColor = Color.FromHex("#9DC73B");
