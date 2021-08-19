@@ -19,6 +19,7 @@ namespace MPGC_APP.Views
         Game game;
         LoginViewModel loginVM;
         List<UserGame> games;
+        bool Playing = false;
 
         public GameInfo()
         {
@@ -127,6 +128,7 @@ namespace MPGC_APP.Views
             await PageBackground.FadeTo(1, 500);
             Task.Delay(3000).Wait();
             Loading.IsVisible = false;
+            Playing = true;
             Content.IsVisible = true;
             Content.Opacity = 0;
 
@@ -243,6 +245,22 @@ namespace MPGC_APP.Views
                     }
                 }
             }
+        }
+
+        private void Switch_Toggled(object sender, ToggledEventArgs e)
+        {
+           
+            if (Playing)
+            {
+                mediaPlayer.Pause();
+                Playing = false;
+            }
+            else
+            {
+                mediaPlayer.Play();
+                Playing = true;
+            }
+
         }
     }
 }

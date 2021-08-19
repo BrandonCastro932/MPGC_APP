@@ -68,6 +68,8 @@
 
                             </Picker>
 
+                            <Switch IsToggled="True" Toggled="Switch_Toggled"></Switch>
+
                             <Label x:Name="TxtDescription" Text="{Binding Description}"
                        
                     TextColor="White"   ></Label>
