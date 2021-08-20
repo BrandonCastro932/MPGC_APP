@@ -64,6 +64,7 @@ namespace MPGC_APP.Views
             if (Content.IsVisible)
             {
                 mediaPlayer.Pause();
+                Playing = false;
                 Navigation.PopAsync();
                 base.OnBackButtonPressed();
             }
@@ -71,6 +72,15 @@ namespace MPGC_APP.Views
             return true;
         }
 
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            if (Content.IsVisible)
+            {
+                mediaPlayer.Pause();
+                Playing = false;
+            }
+        }
 
         private void CmdGameStateChange(object sender, EventArgs e)
         {
