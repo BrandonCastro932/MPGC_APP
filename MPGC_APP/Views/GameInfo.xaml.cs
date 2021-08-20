@@ -14,12 +14,12 @@ namespace MPGC_APP.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GameInfo : ContentPage
     {
-        GameViewModel vmGame;
-        GameInfoViewModel gameInfo;
-        Game game;
-        LoginViewModel loginVM;
-        List<UserGame> games;
-        bool Playing = false;
+        private GameViewModel vmGame;
+        private GameInfoViewModel gameInfo;
+        private Game game;
+        private LoginViewModel loginVM;
+        private List<UserGame> games;
+        private bool Playing = false;
 
         public GameInfo()
         {
@@ -28,7 +28,6 @@ namespace MPGC_APP.Views
             gameInfo = new GameInfoViewModel();
             loginVM = new LoginViewModel();
             games = new List<UserGame>();
-
             mediaPlayer.HeightRequest = 1;
 
             /*Esto pone un titulo en el shell bar
@@ -49,14 +48,13 @@ namespace MPGC_APP.Views
 
             string r = game.Released.ToString("MMMM dd, yyyy");
             string fecha = DateTime.Parse(r).ToShortDateString();
-            TxtReleased.Text = "Release date: " + fecha;
 
+            TxtReleased.Text = "Release date: " + fecha;
             VideoView.ItemsSource = game.GameMovies;
+
             BindableLayout.SetItemsSource(PlatformsView, game.GamePlatforms);
             GetYTGameMusicAsync(((Game)BindingContext).UrlMusicTheme);
             SetButtonText();
-
-
         }
 
         protected override bool OnBackButtonPressed()
@@ -68,7 +66,6 @@ namespace MPGC_APP.Views
                 Navigation.PopAsync();
                 base.OnBackButtonPressed();
             }
-
             return true;
         }
 
@@ -84,13 +81,11 @@ namespace MPGC_APP.Views
 
         private void CmdGameStateChange(object sender, EventArgs e)
         {
-
             if (ObjetosGlobales.isUserLogged)
             {
                 if (!PkPicker.IsFocused)
                 {
                     PkPicker.IsVisible = true;
-
                     PkPicker.Focus();
                 }
             }
@@ -103,7 +98,6 @@ namespace MPGC_APP.Views
         private void CmdHidePicker(object sender, FocusEventArgs e)
         {
             PkPicker.IsVisible = false;
-
         }
 
         public async void GetYTGameMusicAsync(string videoId)
@@ -112,8 +106,8 @@ namespace MPGC_APP.Views
             Loading.IsVisible = true;
             Content.IsVisible = false;
             PageBackground.IsVisible = false;
-            var streamManifest = await youtube.Videos.Streams.GetManifestAsync(videoId);
 
+            var streamManifest = await youtube.Videos.Streams.GetManifestAsync(videoId);
             var streamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
 
             if (streamInfo != null)
@@ -121,7 +115,6 @@ namespace MPGC_APP.Views
                 string source = streamInfo.Url;
 
                 mediaPlayer.Source = source;
-
                 mediaPlayer.Volume = 15;
                 mediaPlayer.HeightRequest = 0;
                 mediaPlayer.AutoPlay = true;
@@ -129,8 +122,6 @@ namespace MPGC_APP.Views
                 {
 
                 }
-
-
             }
             TxtLoading.Text = TxtName.Text;
             PageBackground.IsVisible = true;
@@ -141,9 +132,7 @@ namespace MPGC_APP.Views
             Playing = true;
             Content.IsVisible = true;
             Content.Opacity = 0;
-
             await Content.FadeTo(1, 3000);
-
         }
 
         private void PkPicker_Focused(object sender, FocusEventArgs e)
@@ -166,7 +155,6 @@ namespace MPGC_APP.Views
                 else
                 {
                     await DisplayAlert("Error", "There was a problem trying to add the game", "Borrar");
-
                 }
             }
             else
@@ -179,13 +167,13 @@ namespace MPGC_APP.Views
                         GameState.Text = "Add to";
                         GameState.IsEnabled = true;
                         SortGames();
-
                     }
-
                 }
             }
+
             GameState.IsEnabled = true;
         }
+
         private void SetButtonText()
         {
             if (ObjetosGlobales.isUserLogged)
@@ -260,6 +248,11 @@ namespace MPGC_APP.Views
         private void Switch_Toggled(object sender, ToggledEventArgs e)
         {
            
+
+        }
+
+        private void VideoSwitch_Toggled(object sender, ToggledEventArgs e)
+        {
             if (Playing)
             {
                 mediaPlayer.Pause();
@@ -270,6 +263,11 @@ namespace MPGC_APP.Views
                 mediaPlayer.Play();
                 Playing = true;
             }
+
+        }
+
+        private void WebGesture_Tapped(object sender, EventArgs e)
+        {
 
         }
     }

@@ -40,7 +40,6 @@
                         <StackLayout  Margin="20,20,20,20" >
                             
                             <Label x:Name="TxtName" Text="{Binding Name}" FontSize="27" TextColor="White"></Label>
-
                             <FlexLayout x:Name="PlatformsView" Wrap="Wrap">
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>
@@ -66,8 +65,7 @@
                                 </Picker.Items>
                             </Picker>
 
-                            <Switch IsToggled="True" Toggled="Switch_Toggled"></Switch>
-
+                            
                             <Label x:Name="TxtDescription" Text="{Binding Description}" TextColor="White"></Label>
 
                         </StackLayout>
@@ -91,13 +89,21 @@
                         <StackLayout Margin="0,30,0,30" Opacity="1">
                             <StackLayout Margin="20,30,20,0">
 
-                                <Label Text="Videos" FontSize="27" TextColor="White"></Label>
-
+                                <FlexLayout>
+                                    <Label Text="Videos" FontSize="27" TextColor="White"></Label>
+                                    <Label Text="Soundtrack" FontSize="18" TextColor="White" Margin="130,10,0,0"></Label>
+                                    <Switch x:Name="VideoSwitch" Toggled="VideoSwitch_Toggled" IsToggled="True" Margin="0,11,0,0"></Switch>
+                                </FlexLayout>
                                 <CarouselView x:Name="VideoView" HeightRequest="200" Loop="False">
                                     <CarouselView.ItemTemplate>
                                         <DataTemplate>
 
                                             <WebView Source="{Binding Urlembed, StringFormat='https://www.youtube.com/embed/{0}'}">
+                                                <WebView.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="WebGesture" Tapped="WebGesture_Tapped">
+                                                        
+                                                    </TapGestureRecognizer>
+                                                </WebView.GestureRecognizers>
                                             </WebView>
 
                                         </DataTemplate>

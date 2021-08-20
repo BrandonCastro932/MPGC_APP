@@ -23,11 +23,6 @@ namespace MPGC_APP.Views
             MyCollection.ItemsSource = _Games;
             games = new List<UserGame>();
             loginVM = new LoginViewModel();
-
-
-
-
-
         }
 
         protected override void OnAppearing()
@@ -40,7 +35,6 @@ namespace MPGC_APP.Views
 
             if (ObjetosGlobales.isUserLogged)
             {
-
                 r.Text = "Welcome " + ObjetosGlobales.userLog.Username + "!!";
                 Shell.SetTitleView(this, (View)r);
                 SortGames();
@@ -73,28 +67,35 @@ namespace MPGC_APP.Views
 
         private void SortGames()
         {
-            games = loginVM.GetUserGames(ObjetosGlobales.userLog.Iduser);
-            if (games != null)
+           if(ObjetosGlobales.Completed == null || ObjetosGlobales.Playing == null || ObjetosGlobales.Queue == null || ObjetosGlobales.Wishlist == null)
             {
-                foreach (UserGame game in games)
+                ObjetosGlobales.Completed.Clear();
+                ObjetosGlobales.Playing.Clear();
+                ObjetosGlobales.Queue.Clear();
+                ObjetosGlobales.Wishlist.Clear();
+                games = loginVM.GetUserGames(ObjetosGlobales.userLog.Iduser);
+                if (games != null)
                 {
-                    switch (game.IdgameState)
+                    foreach (UserGame game in games)
                     {
-                        case 1:
-                            ObjetosGlobales.Completed.Add(game);
-                            break;
-                        case 2:
-                            ObjetosGlobales.Playing.Add(game);
-                            break;
-                        case 3:
-                            ObjetosGlobales.Queue.Add(game);
-                            break;
-                        case 4:
-                            ObjetosGlobales.Wishlist.Add(game);
-                            break;
+                        switch (game.IdgameState)
+                        {
+                            case 1:
+                                ObjetosGlobales.Completed.Add(game);
+                                break;
+                            case 2:
+                                ObjetosGlobales.Playing.Add(game);
+                                break;
+                            case 3:
+                                ObjetosGlobales.Queue.Add(game);
+                                break;
+                            case 4:
+                                ObjetosGlobales.Wishlist.Add(game);
+                                break;
+                        }
                     }
                 }
-            }
+            } 
         }
 
     }
