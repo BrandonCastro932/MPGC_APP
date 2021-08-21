@@ -67,8 +67,7 @@ namespace MPGC_APP.Views
 
         private void SortGames()
         {
-           if(ObjetosGlobales.Completed == null || ObjetosGlobales.Playing == null || ObjetosGlobales.Queue == null || ObjetosGlobales.Wishlist == null)
-            {
+         
                 ObjetosGlobales.Completed.Clear();
                 ObjetosGlobales.Playing.Clear();
                 ObjetosGlobales.Queue.Clear();
@@ -95,7 +94,7 @@ namespace MPGC_APP.Views
                         }
                     }
                 }
-            } 
+             
         }
 
     }
