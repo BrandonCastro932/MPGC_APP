@@ -16,7 +16,7 @@ namespace MPGC_APP.Views
 
             MyCollection.ItemsSource = ObjetosGlobales.Completed;
             ResetColors();
-            BtnCompleted.TextColor = Color.LightBlue;
+            BtnCompleted.TextColor = Color.White;
         }
         protected override void OnAppearing()
         {
