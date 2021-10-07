@@ -14,7 +14,6 @@
  
  * [Xamarin Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) Mobile design framework
  * [.Net web core API](https://dotnet.microsoft.com/apps/aspnet/apis) Rest api
- * [Laravel](https://laravel.com/) Php Framework
 
 ## Authors
 
