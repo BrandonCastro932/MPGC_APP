@@ -20,6 +20,7 @@ namespace MPGC_APP.Views
         private LoginViewModel loginVM;
         private List<UserGame> games;
         private bool Playing = false;
+        private string platformString = "";
 
         public GameInfo()
         {
@@ -44,15 +45,32 @@ namespace MPGC_APP.Views
             game = vmGame.GetGameId(((Game)BindingContext).Idgame);
 
             TxtGenre.Text = game.IdgenreNavigation.NameGenre;
+            GenreIcon.Source = game.IdgenreNavigation.IconUrl;
             ScreenshotView.ItemsSource = game.GameScreenshots;
 
+            foreach (var name in game.GamePlatforms)
+            {
+                platformString += name.PlatformsIdplatformNavigation.Platform1+ ", ";
+            }
+            platformString.Remove(platformString.Length - 2,1);
+            TxtPlatforms.Text = platformString;
             string r = game.Released.ToString("MMMM dd, yyyy");
             string fecha = DateTime.Parse(r).ToShortDateString();
-
-            TxtReleased.Text = "Release date: " + fecha;
+            TxtRating.Text = Convert.ToString(game.Rating);
+            TxtPlaytime.Text = Convert.ToString(game.Playtime) + " hours";
+            TxtReleased.Text = "" + fecha;
             VideoView.ItemsSource = game.GameMovies;
 
-            BindableLayout.SetItemsSource(PlatformsView, game.GamePlatforms);
+            if (ObjetosGlobales.isUserLogged)
+            {
+                GameState.IsVisible = true;
+            }
+            else
+            {
+                GameState.IsVisible = false;
+            }
+
+
             GetYTGameMusicAsync(((Game)BindingContext).UrlMusicTheme);
             SetButtonText();
         }
@@ -164,7 +182,7 @@ namespace MPGC_APP.Views
                     if (await gameInfo.DeleteGame(((Game)BindingContext).Idgame, ObjetosGlobales.userLog.Iduser, PkPicker.SelectedIndex))
                     {
                         GameState.BackgroundColor = Color.FromHex("#B51919");
-                        GameState.Text = "Add to";
+                        GameState.Text = "Add to collection";
                         GameState.IsEnabled = true;
                         SortGames();
                     }
@@ -247,7 +265,7 @@ namespace MPGC_APP.Views
 
         private void Switch_Toggled(object sender, ToggledEventArgs e)
         {
-           
+
 
         }
 

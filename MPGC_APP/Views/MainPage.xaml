@@ -65,7 +65,7 @@
 
                                         <StackLayout  VerticalOptions="End">
                                             <!-- NOMBRE DEL JUEGO -->
-                                            <Label x:Name="TxtGameName" Text="{Binding Name}" TextColor="White" FontSize="18" FontAttributes="Bold" Margin="15" FontFamily="Roboto" VerticalOptions="EndAndExpand"></Label>
+                                            <Label x:Name="TxtGameName" Text="{Binding Name}" TextColor="White" FontSize="18" FontAttributes="Bold" Margin="15,0,0,20" FontFamily="Roboto" VerticalOptions="EndAndExpand"></Label>
 
                                         </StackLayout>
 
