@@ -6,80 +6,82 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              >
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
+        <RefreshView x:Name="refreshView" Refreshing="RefreshView_Refreshing">
+            <ScrollView x:Name="scroll">
+                <StackLayout>
 
-                <CollectionView x:Name="MyCollection" HorizontalScrollBarVisibility="Never">
-                    <CollectionView.Header>
-                        <StackLayout>
-                            <Image Source="AllGames" WidthRequest="200" HorizontalOptions="Center" Margin="20"></Image>
-                        </StackLayout>
-                    </CollectionView.Header>
+                    <CollectionView x:Name="MyCollection" HorizontalScrollBarVisibility="Never">
+                        <CollectionView.Header>
+                            <StackLayout>
+                                <Image Source="AllGames" WidthRequest="200" HorizontalOptions="Center" Margin="20"></Image>
+                            </StackLayout>
+                        </CollectionView.Header>
 
-                    <CollectionView.ItemTemplate>
+                        <CollectionView.ItemTemplate>
 
-                        <DataTemplate>
+                            <DataTemplate>
 
 
-                            <Frame BackgroundColor="Transparent">
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                                <Frame BackgroundColor="Transparent">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
 
-                                    </TapGestureRecognizer>
-                                </Frame.GestureRecognizers>
-                                <Frame  BackgroundColor="Wheat" Margin="20,20,20,-20" Padding="0" HorizontalOptions="Center" CornerRadius="10" WidthRequest="400" HeightRequest="250">
+                                        </TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <Frame  BackgroundColor="Wheat" Margin="20,20,20,-20" Padding="0" HorizontalOptions="Center" CornerRadius="10" WidthRequest="400" HeightRequest="250">
 
-                                    <Grid VerticalOptions="Fill">
-                                        <StackLayout BackgroundColor="black">
-                                            <!--IMAGEN DEL JUEGO -->
-                                            <Image Source="MPGCLogo" Aspect="AspectFill" HeightRequest="250" Opacity="0.9">
-                                            </Image>
+                                        <Grid VerticalOptions="Fill">
+                                            <StackLayout BackgroundColor="black">
+                                                <!--IMAGEN DEL JUEGO -->
+                                                <Image Source="MPGCLogo" Aspect="AspectFill" HeightRequest="250" Opacity="0.9">
+                                                </Image>
 
-                                        </StackLayout>
-                                        
+                                            </StackLayout>
+
                                             <StackLayout>
                                                 <!--IMAGEN DEL JUEGO -->
 
-                                            <ActivityIndicator VerticalOptions="CenterAndExpand" IsVisible="true" IsRunning="True" Color="#1DA1F2" ></ActivityIndicator>
+                                                <ActivityIndicator VerticalOptions="CenterAndExpand" IsVisible="true" IsRunning="True" Color="#1DA1F2" ></ActivityIndicator>
 
                                             </StackLayout>
 
                                             <StackLayout BackgroundColor="Transparent">
-                                            <!--IMAGEN DEL JUEGO -->
-                                            <ffimageloading:CachedImage DownsampleToViewSize="True" CacheDuration="1" x:Name="TxtGameImg" Source="{Binding BackgroundImage}" Aspect="AspectFill" HeightRequest="250" Opacity="1">
-                                            </ffimageloading:CachedImage>
+                                                <!--IMAGEN DEL JUEGO -->
+                                                <ffimageloading:CachedImage DownsampleToViewSize="True" CacheDuration="1" x:Name="TxtGameImg" Source="{Binding BackgroundImage}" Aspect="AspectFill" HeightRequest="250" Opacity="1">
+                                                </ffimageloading:CachedImage>
 
-                                        </StackLayout>
+                                            </StackLayout>
 
-                                        <StackLayout HeightRequest="70" BackgroundColor="Black" VerticalOptions="End" Opacity="0.7">
+                                            <StackLayout HeightRequest="70" BackgroundColor="Black" VerticalOptions="End" Opacity="0.7">
 
-                                        </StackLayout>
+                                            </StackLayout>
 
-                                        <StackLayout VerticalOptions="Start" HeightRequest="40">
-                                            <Frame Padding="0" BackgroundColor="{Binding IdgenreNavigation.GenreColor}" HorizontalOptions="End" Margin="10" CornerRadius="10"
+                                            <StackLayout VerticalOptions="Start" HeightRequest="40">
+                                                <Frame Padding="0" BackgroundColor="{Binding IdgenreNavigation.GenreColor}" HorizontalOptions="End" Margin="10" CornerRadius="10"
                                        WidthRequest="70">
-                                                <!-- GENERO DEL JUEGO -->
-                                                <Label x:Name="GameGenre" Text="{Binding IdgenreNavigation.NameGenre}" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                                            </Frame>
-                                        </StackLayout>
+                                                    <!-- GENERO DEL JUEGO -->
+                                                    <Label x:Name="GameGenre" Text="{Binding IdgenreNavigation.NameGenre}" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                                                </Frame>
+                                            </StackLayout>
 
-                                        <StackLayout  VerticalOptions="End">
-                                            <!-- NOMBRE DEL JUEGO -->
-                                            <Label x:Name="TxtGameName" Text="{Binding Name}" TextColor="White" FontSize="18" FontAttributes="Bold" Margin="15,0,0,20" FontFamily="Roboto" VerticalOptions="EndAndExpand"></Label>
+                                            <StackLayout  VerticalOptions="End">
+                                                <!-- NOMBRE DEL JUEGO -->
+                                                <Label x:Name="TxtGameName" Text="{Binding Name}" TextColor="White" FontSize="18" FontAttributes="Bold" Margin="15,0,0,20" FontFamily="Roboto" VerticalOptions="EndAndExpand"></Label>
 
-                                        </StackLayout>
+                                            </StackLayout>
 
-                                    </Grid>
+                                        </Grid>
+
+                                    </Frame>
 
                                 </Frame>
 
-                            </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
 
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-
-            </StackLayout>
-        </ScrollView>
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

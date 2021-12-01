@@ -1,8 +1,10 @@
 ﻿using MPGC_API.Models;
 using MPGC_APP.Tools;
 using MPGC_APP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,13 +16,13 @@ namespace MPGC_APP.Views
         LoginViewModel loginVM;
         List<UserGame> games;
         GameViewModel vmGame;
+        ObservableCollection<Game> _Games;
+        long lastpress;
         public MainPage()
         {
             InitializeComponent();
             BindingContext = vmGame = new GameViewModel();
-            ObservableCollection<Game> _Games = new ObservableCollection<Game>(vmGame.AllGames());
-
-            MyCollection.ItemsSource = _Games;
+            LoadGames();
             games = new List<UserGame>();
             loginVM = new LoginViewModel();
         }
@@ -45,6 +47,33 @@ namespace MPGC_APP.Views
                 Shell.SetTitleView(this, (View)r);
             }
             base.OnAppearing();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            long current = DateTime.UtcNow.Ticks / TimeSpan.TicksPerMillisecond;
+            
+
+            if (current - lastpress > 5000)
+            {
+                lastpress = current;
+                MyCollection.ScrollTo(1);
+                refreshView.IsRefreshing = true;
+                RefreshView_Refreshing(this, null);
+            }
+            else
+            {
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+            }
+            return true;
+        }
+       
+
+        private void LoadGames()
+        {
+            _Games = new ObservableCollection<Game>(vmGame.AllGames());
+
+            MyCollection.ItemsSource = _Games;
         }
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
@@ -97,5 +126,14 @@ namespace MPGC_APP.Views
              
         }
 
+        private async void RefreshView_Refreshing(object sender, System.EventArgs e)
+        {
+            await Task.Delay(1000);
+            _Games.Clear();
+            LoadGames();
+            await Task.Delay(2000);
+            refreshView.IsRefreshing = false;
+
+        }
     }
 }
