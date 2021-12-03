@@ -85,7 +85,7 @@
     <FlyoutItem Title="All Games" Icon="icon_all.png">
         <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="My Games" Icon="UserIcon.png">
+    <FlyoutItem Title="My Games" Icon="UserIcon.png" IsVisible="{Binding isVisible}">
         <ShellContent Route="GameCollectionPage" ContentTemplate="{DataTemplate local:GameCollectionPage}"/>
     </FlyoutItem>
     <!--<FlyoutItem Title="Browse" Icon="icon_feed.png">
@@ -106,7 +106,22 @@
     <TabBar Title="" Icon="">
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </TabBar>
-
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid>
+                <Frame BackgroundColor="#141d26" Margin="30,30,30,30" CornerRadius="10">
+                    <StackLayout Spacing="5">
+                        <Image Source="SplashLogo.png"></Image>
+                        <StackLayout Orientation="Horizontal" Padding="0" Spacing="5" HorizontalOptions="FillAndExpand" Margin="10">
+                            <Image x:Name="UserIcon" IsVisible="{Binding isVisible}" Source="UserIcon.png" WidthRequest="40"></Image>
+                            <Label x:Name="UserLabel" Text="{Binding UserName}" FontSize="20" TextColor="White" Margin="0,5,0,0"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
 
