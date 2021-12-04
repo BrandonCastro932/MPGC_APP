@@ -103,6 +103,8 @@
         content you can do so by calling 
         await Shell.Current.GoToAsync("//LoginPage");
     -->
+
+    <!--Para hacer un header en el flyout-->
     <TabBar Title="" Icon="">
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </TabBar>
@@ -122,6 +124,35 @@
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
+
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <Grid>
+                <Label Text="MPGC by Videojuegos Omega" FontSize="15" TextColor="{StaticResource Primary}" Margin="10,10,10,0"></Label>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+
+    <!--Para hacer un footer en el flyout-->
+    <!--"<Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <Grid>
+                <Frame BackgroundColor="#141d26" Margin="30,30,30,30" CornerRadius="10">
+                    <StackLayout Spacing="5">
+                        <Image Source="SplashLogo.png"></Image>
+                        <StackLayout Orientation="Horizontal" Padding="0" Spacing="5" HorizontalOptions="FillAndExpand" Margin="10">
+                            <Image x:Name="UserIcon" IsVisible="{Binding isVisible}" Source="UserIcon.png" WidthRequest="40"></Image>
+                            <Label x:Name="UserLabel" Text="{Binding UserName}" FontSize="20" TextColor="White" Margin="0,5,0,0"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>-->
+    
+    
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
 

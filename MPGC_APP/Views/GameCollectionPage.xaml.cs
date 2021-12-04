@@ -32,6 +32,13 @@ namespace MPGC_APP.Views
             }
             base.OnAppearing();
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            ObjetosGlobales.shell.GoToAsync("//MainPage");
+            base.OnBackButtonPressed();
+            return true;
+        }
         private void BtnCompleted_Clicked(object sender, EventArgs e)
         {
             MyCollection.ItemsSource = ObjetosGlobales.Completed;
