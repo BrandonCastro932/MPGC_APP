@@ -68,5 +68,16 @@
 ![image](https://user-images.githubusercontent.com/68369543/169972299-ce5bb157-ec47-4cf5-a75a-ec8bf96dfe5f.png)
 
 
+* Account registration:
+
+![image](https://user-images.githubusercontent.com/68369543/169973207-ef147a0b-15e8-4ce7-857a-3ce1a451010c.png)
+
+
+* Sign in:
+
+![image](https://user-images.githubusercontent.com/68369543/169973426-30b11290-ae4d-4c24-9d05-e7ef37cbfb0c.png)
+
+
+
 
 
