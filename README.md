@@ -35,11 +35,9 @@
 * Game information
 
 ![image](https://user-images.githubusercontent.com/68369543/169970654-44d450d6-16a2-4123-a7b5-958755dd7adc.png)
-
 ![image](https://user-images.githubusercontent.com/68369543/169970745-75afd401-874e-4da1-9ac5-0245f902aecc.png)
 
 ![image](https://user-images.githubusercontent.com/68369543/169971319-5b24c8ac-3625-4db2-a9e6-a88cf1a72d43.png)
-
 ![image](https://user-images.githubusercontent.com/68369543/169971378-61818792-1595-4bc1-b4cc-7bbad9902da5.png)
 
 
