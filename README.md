@@ -17,8 +17,8 @@
 
 ## Authors
 
-* **David Vargas** - *FrontEnd designer and coder* - [KillerBunny12](https://github.com/KillerBunny12)
 * **Brandon Castro** - *FrontEnd and Backend coder* - [BrandonCastro932](https://github.com/BrandonCastro932)
+* **David Vargas** - *FrontEnd designer and coder* - [KillerBunny12](https://github.com/KillerBunny12)
 
 ## Screenshots of MPGC
 
